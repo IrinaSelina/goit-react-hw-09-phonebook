@@ -29,10 +29,5 @@ const Navigation = () => {
     </nav>
   );
 };
-// const mapStateToProps = (state) => ({
-//   isAuthenticated: authSelectors.isAuthenticated(state),
-// });
-// Navigation.propTypes = {
-//   isAuthenticated: PropTypes.bool.isRequired,
-// };
+
 export default Navigation;

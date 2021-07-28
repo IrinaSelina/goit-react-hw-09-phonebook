@@ -18,18 +18,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-// const AppBar = ({ isAuthenticated }) => (
-//   <header>
-//     <Navigation />
-//     {isAuthenticated ? <UserMenu /> : <AuthNav />}
-//   </header>
-// );
-// const mapStateToProps = (state) => ({
-//   isAuthenticated: selectors.isAuthenticated(state),
-// });
-// AppBar.propTypes = {
-//   isAuthenticated: PropTypes.bool.isRequired,
-// };
 const NavBar = () => {
   const classes = useStyles();
   const isAuthenticated = useSelector(selectors.isAuthenticated);
@@ -48,10 +36,5 @@ const NavBar = () => {
     </div>
   );
 };
-// const mapStateToProps = (state) => ({
-//   isAuthenticated: selectors.isAuthenticated(state),
-// });
-// NavBar.propTypes = {
-//   isAuthenticated: PropTypes.bool.isRequired,
-// };
+
 export default NavBar;

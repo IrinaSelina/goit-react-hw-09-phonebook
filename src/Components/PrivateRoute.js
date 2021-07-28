@@ -19,8 +19,4 @@ const PrivateRoute = ({ component: Component, redirectTo, ...routeProps }) => {
   );
 };
 
-// const mapStateToProps = (state) => ({
-//   isAuthenticated: authSelectors.isAuthenticated(state),
-// });
-
 export default PrivateRoute;

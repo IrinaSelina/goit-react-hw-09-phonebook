@@ -24,8 +24,4 @@ const PublicRoute = ({
   );
 };
 
-// const mapStateToProps = (state) => ({
-//   isAuthenticated: authSelectors.isAuthenticated(state),
-// });
-
 export default PublicRoute;

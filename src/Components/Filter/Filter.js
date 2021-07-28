@@ -38,12 +38,4 @@ const Filter = () => {
   );
 };
 
-// const mapStateToProps = (state) => ({
-//   value: selectors.getFilter(state),
-// });
-
-// const mapDispatchToProps = (dispatch) => ({
-//   onChange: (e) => dispatch(formActions.addFilter(e.target.value)),
-// });
-
 export default Filter;
