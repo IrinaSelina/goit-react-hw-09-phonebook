@@ -8,7 +8,6 @@ const addContactError = createAction("contact/addItemError");
 const deleteContactRequest = createAction("contact/deleteItemRequest");
 const deleteContactSuccess = createAction("contact/deleteItemSuccess");
 const deleteContactError = createAction("contact/deleteItemError");
-
 const addFilter = createAction("contacts/Filter");
 
 export default {

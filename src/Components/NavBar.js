@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import Navigation from "./Navigation";
 import AuthNav from "./AuthNav";
 import UserMenu from "./UserMenu/UserMenu";
@@ -30,8 +30,9 @@ const useStyles = makeStyles((theme) => ({
 // AppBar.propTypes = {
 //   isAuthenticated: PropTypes.bool.isRequired,
 // };
-const NavBar = ({ isAuthenticated }) => {
+const NavBar = () => {
   const classes = useStyles();
+  const isAuthenticated = useSelector(selectors.isAuthenticated);
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -47,10 +48,10 @@ const NavBar = ({ isAuthenticated }) => {
     </div>
   );
 };
-const mapStateToProps = (state) => ({
-  isAuthenticated: selectors.isAuthenticated(state),
-});
-NavBar.propTypes = {
-  isAuthenticated: PropTypes.bool.isRequired,
-};
-export default connect(mapStateToProps, null)(NavBar);
+// const mapStateToProps = (state) => ({
+//   isAuthenticated: selectors.isAuthenticated(state),
+// });
+// NavBar.propTypes = {
+//   isAuthenticated: PropTypes.bool.isRequired,
+// };
+export default NavBar;

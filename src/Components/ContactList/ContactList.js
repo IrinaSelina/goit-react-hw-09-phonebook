@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import { connect, useSelector, useDispatch } from "react-redux";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
@@ -35,8 +35,14 @@ const useStyles = makeStyles((theme) => ({
     transform: "rotate(180deg)",
   },
 }));
-const ContactList = ({ contacts, onDelete }) => {
+const ContactList = () => {
   const classes = useStyles();
+  const contacts = useSelector(selectors.getVisibleContacts);
+  const dispatch = useDispatch();
+  const onDelete = (id) => {
+    dispatch(formOperations.deleteContact(id));
+  };
+
   return (
     <ul>
       {contacts.map(({ id, name, number }) => (
@@ -69,39 +75,9 @@ const ContactList = ({ contacts, onDelete }) => {
             </Button>
           </CardActions>
         </Card>
-        // <li className="contact-item" key={id}>
-        //   <span className="contact-data-name">{name}:</span>
-        //   <span className="contact-data-number">{number}</span>
-
-        //   <button
-        //     className="delete__btn"
-        //     onClick={() => onDelete(id)}
-        //     type="button"
-        //   >
-        //     Delete
-        //   </button>
-        // </li>
       ))}
     </ul>
   );
 };
 
-ContactList.propTypes = {
-  onDelete: PropTypes.func,
-  contacts: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-};
-const mapStateToProps = (state) => ({
-  contacts: selectors.getVisibleContacts(state),
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  onDelete: (id) => dispatch(formOperations.deleteContact(id)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(ContactList);
+export default ContactList;

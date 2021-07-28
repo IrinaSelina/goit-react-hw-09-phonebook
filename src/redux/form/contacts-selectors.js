@@ -8,13 +8,6 @@ const getVisibleContacts = createSelector(
       name.toLowerCase().includes(filter.toLowerCase())
     )
 );
-// const getVisibleContacts = (state) => {
-//   const filter = getFilter(state);
-//   const contacts = getAllItems(state);
-//   return contacts.filter(({ name }) =>
-//     name.toLowerCase().includes(filter.toLowerCase())
-//   );
-// };
 
 export default {
   getFilter,
