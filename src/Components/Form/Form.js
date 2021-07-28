@@ -14,6 +14,10 @@ const InputForm = () => {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
+  const reset = () => {
+    setNumber("");
+    setName("");
+  };
   const handleChangeName = (e) => {
     setName(e.currentTarget.value);
   };
@@ -28,6 +32,7 @@ const InputForm = () => {
     )
       ? alert(`${name} is already in contacts.`)
       : dispatch(formOperations.addContact(name, number));
+    reset();
   };
   return (
     <form onSubmit={onHandleSubmit}>
